@@ -58,50 +58,6 @@ describe("render contact form", () => {
   });
 });
 
-describe("Contact form events with values", () => {
-  beforeEach(() => {
-    render(<ContactUsForm />);
-  });
-
-  afterAll(cleanup);
-
-  it("Should have not an empty value in name input field", () => {
-    const nameInput = screen.getByTestId("name.input");
-    fireEvent.change(nameInput, { target: { value: "hello world" } });
-    expect(nameInput).toHaveValue("hello world");
-  });
-  it("Should have not an empty value in email input field", () => {
-    const emailInput = screen.getByTestId("email.input");
-    fireEvent.change(emailInput, { target: { value: "helloworld@gmail.com" } });
-    expect(emailInput).toHaveValue("helloworld@gmail.com");
-  });
-  it("Should have not an empty value in description input field", () => {
-    const descriptionInput = screen.getByTestId("description.input");
-    fireEvent.change(descriptionInput, {
-      target: { value: "hello world testing 123" },
-    });
-    expect(descriptionInput).toHaveValue("hello world testing 123");
-  });
-  it("Should have a selected value on concerned project drop down", () => {
-    const concernedProjectInput = screen.getByRole("combobox", {
-      name: "concerned-project.input",
-    });
-    fireEvent.change(concernedProjectInput, {
-      target: { value: ConcernedProjects.FinHQ },
-    });
-    expect(concernedProjectInput).toHaveDisplayValue(ConcernedProjects.FinHQ);
-  });
-  it("Should have a selected value on category drop down", () => {
-    const categoryInput = screen.getByRole("combobox", {
-      name: "category.input",
-    });
-    fireEvent.change(categoryInput, {
-      target: { value: Category.General },
-    });
-    expect(categoryInput).toHaveDisplayValue(Category.General);
-  });
-});
-
 describe("Contact form show toast", () => {
   it("Should show toast after clicking send button if all required fields are valid", async () => {
     render(
