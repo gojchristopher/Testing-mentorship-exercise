@@ -35,19 +35,19 @@ const ContactUsForm = () => {
     if (data) {
       toast("message successfully sent", {
         variant: "success",
-        duration: 50000,
       });
     }
   };
 
   return (
-    <Card pt="64px">
+    <Card mt="64px">
       <Flex gap="32px" align="center" flexDirection="column" width="full">
         <Heading
           color="neutrals.900"
           fontSize="30px"
           lineHeight="36px"
           fontWeight="700"
+          mb="0"
           data-testid="form-header"
         >
           Drop your message
